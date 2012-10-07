@@ -4,8 +4,8 @@ import java.nio.FloatBuffer;
 import java.util.Arrays;
 
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.ShaderAttachable;
 import dk.kalhauge.openglutils.Utils;
+import dk.kalhauge.openglutils.core.ShaderAttachable;
 
 public class Vec4 implements ShaderAttachable{
 	

@@ -1,7 +1,7 @@
 package dk.kalhauge.openglutils.math;
 
 import static android.opengl.Matrix.*;
-import dk.kalhauge.openglutils.ShaderAttachable;
+import dk.kalhauge.openglutils.core.ShaderAttachable;
 import android.net.UrlQuerySanitizer.ValueSanitizer;
 import android.opengl.GLES20;
 public class Matrix implements ShaderAttachable {

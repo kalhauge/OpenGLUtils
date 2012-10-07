@@ -9,8 +9,8 @@ import java.util.Collections;
 import java.util.List;
 
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.ShaderAttachable;
 import dk.kalhauge.openglutils.Utils;
+import dk.kalhauge.openglutils.core.ShaderAttachable;
 
 public class Vec3 implements ShaderAttachable{
 	
