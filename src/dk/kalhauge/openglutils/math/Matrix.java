@@ -1,9 +1,14 @@
 package dk.kalhauge.openglutils.math;
 
-import static android.opengl.Matrix.*;
-import dk.kalhauge.openglutils.core.ShaderAttachable;
-import android.net.UrlQuerySanitizer.ValueSanitizer;
+import static android.opengl.Matrix.frustumM;
+import static android.opengl.Matrix.multiplyMM;
+import static android.opengl.Matrix.multiplyMV;
+import static android.opengl.Matrix.rotateM;
+import static android.opengl.Matrix.setLookAtM;
+import static android.opengl.Matrix.translateM;
 import android.opengl.GLES20;
+import dk.kalhauge.openglutils.core.ShaderAttachable;
+import dk.kalhauge.openglutils.core.ShaderProgram;
 public class Matrix implements ShaderAttachable {
 
 	public float[] values;
@@ -87,6 +92,6 @@ public class Matrix implements ShaderAttachable {
 
 	public void attach(int location) {
 		GLES20.glUniformMatrix4fv(location, 1, false, values, 0);
-		
 	}
+
 }
