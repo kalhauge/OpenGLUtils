@@ -4,8 +4,8 @@ import java.nio.FloatBuffer;
 import java.util.Arrays;
 
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.Utils;
-import dk.kalhauge.openglutils.core.ShaderAttachable;
+import dk.kalhauge.openglutils.core.Utils;
+import dk.kalhauge.openglutils.interfaces.ShaderAttachable;
 
 public class Vec4 implements ShaderAttachable{
 	
@@ -35,6 +35,11 @@ public class Vec4 implements ShaderAttachable{
 		GLES20.glUniform4fv(location,1, values, 0);	
 	}
 	
+	public static FloatBuffer createBuffer(int size) {
+		FloatBuffer buffer = Utils.createBuffer(size*4*4).asFloatBuffer();
+		return buffer;
+	}
+	
 	public static FloatBuffer createBuffer(Vec4[] array) {
 		FloatBuffer buffer = Utils.createBuffer(array.length*4*4).asFloatBuffer();
 		for(Vec4 v : array) {
@@ -42,6 +47,10 @@ public class Vec4 implements ShaderAttachable{
 		}
 		buffer.flip();
 		return buffer;
+	}
+
+	public float[] getValues() {
+		return values.clone();
 	}
 
 }

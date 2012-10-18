@@ -1,4 +1,4 @@
-package dk.kalhauge.openglutils;
+package dk.kalhauge.openglutils.core;
 
 import static android.opengl.GLES20.*;
 
@@ -8,11 +8,40 @@ import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
 import android.graphics.Bitmap;
-import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.util.Log;
 
 public class Utils {
+	
+public static int size = 0;
+	
+	public static final int 
+	ENTITY_COLOR = size++,
+	VIEW_MATRIX = size++,
+	WORLD_MATRIX = size++,
+	VERTEX_POS = size++,
+	VERTEX_NORMAL = size++,
+	VERTEX_COLOR = size++,
+	VERTEX_TEX_COORD = size++;
+	
+	public static final int
+	MODELVIEW_PROJECTION_MATRIX = size++;
+	
+	public static final int
+	TEXTURE_0 = size++,
+	TEXTURE_1 = size++;
+	
+	public static final int
+	SPECIAL_UNIFORM_0 = size++,
+	SPECIAL_UNIFORM_1 = size++,
+	SPECIAL_UNIFORM_2 = size++,
+	SPECIAL_UNIFORM_3 = size++;
+	
+	public static final int
+	SPECIAL_ATTRIBUTE_0 = size++,
+	SPECIAL_ATTRIBUTE_1 = size++,
+	SPECIAL_ATTRIBUTE_2 = size++;
+	
 	
 	@Deprecated
 	public static void put(float[] points, int i, float x, float y, float z) {
@@ -59,22 +88,5 @@ public class Utils {
 		return buffer;
 	}
 	
-	/**
-	 * Loads a texture onto the GPU, at position that texture_id points to.
-	 * @param bitmap
-	 * @param texture_id
-	 */
-	
-	public static void loadTexture(Bitmap bitmap,int texture_id){
-		glBindTexture(GL_TEXTURE_2D,texture_id);
-		glPixelStorei(GL_UNPACK_ALIGNMENT, GL_TRUE);
-		
-		GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		Log.v("Utils", bitmap.getWidth() + ", " + bitmap.getHeight());
-	    Log.v("Utils", "Texture is at " + texture_id); 
-	    bitmap.recycle();
-	}	    
 }

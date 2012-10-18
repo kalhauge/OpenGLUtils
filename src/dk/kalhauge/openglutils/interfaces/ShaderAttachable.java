@@ -1,8 +1,5 @@
-package dk.kalhauge.openglutils.core;
-
+package dk.kalhauge.openglutils.interfaces;
 
 public interface ShaderAttachable {
-	
 	void attach(int position);
-
 }

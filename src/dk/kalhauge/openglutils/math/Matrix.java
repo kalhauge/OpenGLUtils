@@ -1,14 +1,9 @@
 package dk.kalhauge.openglutils.math;
 
-import static android.opengl.Matrix.frustumM;
-import static android.opengl.Matrix.multiplyMM;
-import static android.opengl.Matrix.multiplyMV;
-import static android.opengl.Matrix.rotateM;
-import static android.opengl.Matrix.setLookAtM;
-import static android.opengl.Matrix.translateM;
+import static android.opengl.Matrix.*;
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.core.ShaderAttachable;
 import dk.kalhauge.openglutils.core.ShaderProgram;
+import dk.kalhauge.openglutils.interfaces.ShaderAttachable;
 public class Matrix implements ShaderAttachable {
 
 	public float[] values;
@@ -19,6 +14,15 @@ public class Matrix implements ShaderAttachable {
 
 	private Matrix(Matrix m) {
 		values = m.values.clone();
+	}
+	
+	public static Matrix orhto (
+			float left,float right,
+			float bottom,float top,
+			float near,float far){
+		Matrix m = new Matrix();
+		orthoM(m.values,0, left, right, bottom, top, near, far);
+		return m;
 	}
 	
 	public static Matrix fustrum(

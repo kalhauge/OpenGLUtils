@@ -9,8 +9,8 @@ import java.util.Collections;
 import java.util.List;
 
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.Utils;
-import dk.kalhauge.openglutils.core.ShaderAttachable;
+import dk.kalhauge.openglutils.core.Utils;
+import dk.kalhauge.openglutils.interfaces.ShaderAttachable;
 
 public class Vec3 implements ShaderAttachable{
 	
@@ -36,6 +36,15 @@ public class Vec3 implements ShaderAttachable{
 
 	public void attach(int location) {
 		GLES20.glUniform3fv(location,1, values, 0);	
+	}
+	
+	public float[] getValues(){
+		return values.clone();
+	}
+	
+	public static FloatBuffer createBuffer(int size) {
+		FloatBuffer buffer = Utils.createBuffer(size*3*4).asFloatBuffer();
+		return buffer;
 	}
 	
 	public static FloatBuffer createBuffer(Vec3[] array) {
