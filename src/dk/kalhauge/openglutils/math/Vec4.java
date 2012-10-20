@@ -9,7 +9,7 @@ import dk.kalhauge.openglutils.interfaces.ShaderAttachable;
 
 public class Vec4 implements ShaderAttachable{
 	
-	public float[] values;
+	float[] values;
 	
 	public Vec4(){
 		values = new float[4];
@@ -27,6 +27,15 @@ public class Vec4 implements ShaderAttachable{
 		values[2] = z;
 		values[3] = w;
 	}
+	
+	public Vec4(Vec3 vec) {
+		values = new float[4];
+		values[0] = vec.values[0];
+		values[1] = vec.values[1];
+		values[2] = vec.values[2];
+		values[3] = 1;
+	}
+	
 	public String toString() {
 		return Arrays.toString(values);
 	}
@@ -52,5 +61,6 @@ public class Vec4 implements ShaderAttachable{
 	public float[] getValues() {
 		return values.clone();
 	}
+
 
 }

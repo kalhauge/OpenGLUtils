@@ -2,7 +2,6 @@ package dk.kalhauge.openglutils.math;
 
 import static android.opengl.Matrix.*;
 import android.opengl.GLES20;
-import dk.kalhauge.openglutils.core.ShaderProgram;
 import dk.kalhauge.openglutils.interfaces.ShaderAttachable;
 public class Matrix implements ShaderAttachable {
 
@@ -33,6 +32,11 @@ public class Matrix implements ShaderAttachable {
 		frustumM(m.values, 0, left, right, bottom, top, near, far);
 		return m;
 	}
+
+	public static Matrix fustrum(int width, int height){
+		float aspect = width / (float) height;
+		return fustrum(-aspect, aspect, -1, 1, 2f, 100f);
+	}
 	
 	public static Matrix lookAt(
 			float eyeX, float eyeY, float eyeZ,
@@ -50,6 +54,17 @@ public class Matrix implements ShaderAttachable {
 		m.values[10] = 1;
 		m.values[15] = 1;
 		return m;
+		
+	}
+	
+	public Matrix invert() {
+		Matrix m = new Matrix();
+		invertM(m.values, 0, this.values, 0);
+		return m;
+	}
+	
+	public void transpose(){
+		transposeM(values, 0, values, 0);
 	}
 	
 	public static Matrix multiply(Matrix m1, Matrix m2) {
@@ -70,6 +85,14 @@ public class Matrix implements ShaderAttachable {
 	
 	public void translate(float x,float y, float z){
 		translateM(values, 0, x, y, z);
+	}
+	
+	public void translate(Vec3 vec){
+		translateM(values, 0, vec.values[0], vec.values[1], vec.values[2]);
+	}
+	
+	public void scale(float s) {
+		scaleM(values, 0, s,s,s);
 	}
 	
 	public Matrix clone(){

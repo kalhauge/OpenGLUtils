@@ -20,6 +20,10 @@ public class Draworder{
 		this.mode = mode;
 	}
 	
+	public Draworder(int glPoints, int length) {
+		setLength(length);
+	}
+
 	public void setLength(int length) {
 		this.length = length;
 	}

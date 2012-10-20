@@ -17,15 +17,17 @@ public static int size = 0;
 	
 	public static final int 
 	ENTITY_COLOR = size++,
-	VIEW_MATRIX = size++,
-	WORLD_MATRIX = size++,
 	VERTEX_POS = size++,
 	VERTEX_NORMAL = size++,
 	VERTEX_COLOR = size++,
-	VERTEX_TEX_COORD = size++;
+	VERTEX_TEX_COORD = size++,
+	VERTEX_TEX_COORD1 = size++;
 	
 	public static final int
-	MODELVIEW_PROJECTION_MATRIX = size++;
+	MODELVIEW_PROJECTION_MATRIX = size++,
+	MODELVIEW_MATRIX = size++,
+	NORMAL_MATRIX = size++;
+
 	
 	public static final int
 	TEXTURE_0 = size++,

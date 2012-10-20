@@ -1,12 +1,7 @@
 package dk.kalhauge.openglutils.math;
 
-import java.lang.reflect.Array;
 import java.nio.FloatBuffer;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 import android.opengl.GLES20;
 import dk.kalhauge.openglutils.core.Utils;
@@ -16,11 +11,15 @@ public class Vec3 implements ShaderAttachable{
 	
 	public static final Vec3 ORIGO = new Vec3(0, 0, 0);
 	
-	private float[] values;
+	float[] values;
 	
 	public Vec3(float[] fs) {
 		if(fs.length != 3) throw new IllegalArgumentException("Array must be of lenght 3, not " + fs.length);
 		values = fs.clone();
+	}
+	
+	public Vec3(Vec3 old) {
+		values = old.values.clone();
 	}
 	
 	public Vec3(float x, float y, float z) {
@@ -54,6 +53,10 @@ public class Vec3 implements ShaderAttachable{
 		}
 		buffer.flip();
 		return buffer;
+	}
+	
+	public Vec3 clone(){
+		return new Vec3(this);
 	}
 
 }

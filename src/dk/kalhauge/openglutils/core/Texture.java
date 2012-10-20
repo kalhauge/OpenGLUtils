@@ -57,8 +57,6 @@ public class Texture implements ShaderAttachable {
 		glTexParameteri(target, GL_TEXTURE_WRAP_S, wrap_s);
 		glTexParameteri(target, GL_TEXTURE_WRAP_T, wrap_t);
 		unbind();
-		
-		
 	}
 	
 	public void load2DImage(Bitmap bitmap) {
@@ -66,6 +64,17 @@ public class Texture implements ShaderAttachable {
 		bind();
 		glPixelStorei(GL_UNPACK_ALIGNMENT, GL_TRUE);
 		GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
+		unbind();
+	}
+	
+	public void loadCubeImage(Bitmap[] bitmap, int[] cube) {
+		if(target != GL_TEXTURE_CUBE_MAP) throw new TextureSetupExecption();
+		if(bitmap.length != cube.length || cube.length != 6) throw new IllegalArgumentException();
+		bind();
+		for(int i = 0; i < 6; i++){
+			glPixelStorei(GL_UNPACK_ALIGNMENT, GL_TRUE);
+			GLUtils.texImage2D(cube[i], 0, bitmap[i], 0);
+		}
 		unbind();
 	}
 
