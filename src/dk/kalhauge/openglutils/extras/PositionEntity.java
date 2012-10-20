@@ -18,10 +18,13 @@ public class PositionEntity extends Entity{
 	
 	public void createMatrices(Matrix projection, Matrix view) {
 		Matrix mvMatrix = Matrix.multiply(view, position);
-		
+		Matrix imvMatrix = mvMatrix.invert();
+		Matrix nMatrix = imvMatrix.transpose();
+				
 		registerAttachable(Utils.MODELVIEW_MATRIX, mvMatrix);
 		registerAttachable(Utils.MODELVIEW_PROJECTION_MATRIX, Matrix.multiply(projection, mvMatrix));
-		Matrix imvMatrix = mvMatrix.invert();
+		
+		registerAttachable(Utils.NORMAL_MATRIX, nMatrix);
 		registerAttachable(Utils.INVERSE_MODELVIEW_MATRIX,imvMatrix);
 	}
 	

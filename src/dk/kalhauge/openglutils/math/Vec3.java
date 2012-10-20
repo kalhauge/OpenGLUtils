@@ -22,6 +22,10 @@ public class Vec3 implements ShaderAttachable{
 		values = old.values.clone();
 	}
 	
+	public Vec3(Vec4 old) {
+		this(old.values[0] / old.values[3],old.values[1] / old.values[3],old.values[2] / old.values[3]);
+	}
+	
 	public Vec3(float x, float y, float z) {
 		values = new float[3];
 		values[0] = x;

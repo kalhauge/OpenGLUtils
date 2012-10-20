@@ -32,7 +32,17 @@ public static int size = 0;
 	
 	public static final int
 	TEXTURE_0 = size++,
-	TEXTURE_1 = size++;
+	TEXTURE_1 = size++,
+	TEXTURE_2 = size++,
+	TEXTURE_3 = size++,
+	TEXTURE_4 = size++;
+	
+	public static final int
+	AMBIENT_COLOR = size++,
+	DIFFUSE_COLOR = size++,
+	SPECULAR_COLOR = size++,
+	LIGHT_POS = size++;
+	
 	
 	public static final int
 	SPECIAL_UNIFORM_0 = size++,
@@ -45,6 +55,7 @@ public static int size = 0;
 	SPECIAL_ATTRIBUTE_1 = size++,
 	SPECIAL_ATTRIBUTE_2 = size++;
 
+	
 	
 	
 	@Deprecated

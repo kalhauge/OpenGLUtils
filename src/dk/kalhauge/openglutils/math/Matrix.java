@@ -63,8 +63,10 @@ public class Matrix implements ShaderAttachable {
 		return m;
 	}
 	
-	public void transpose(){
-		transposeM(values, 0, values, 0);
+	public Matrix transpose(){
+		Matrix m = new Matrix();
+		transposeM(m.values, 0, values, 0);
+		return m;
 	}
 	
 	public static Matrix multiply(Matrix m1, Matrix m2) {
