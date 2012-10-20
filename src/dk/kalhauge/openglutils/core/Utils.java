@@ -26,6 +26,7 @@ public static int size = 0;
 	public static final int
 	MODELVIEW_PROJECTION_MATRIX = size++,
 	MODELVIEW_MATRIX = size++,
+	INVERSE_MODELVIEW_MATRIX  = size++,
 	NORMAL_MATRIX = size++;
 
 	
@@ -43,6 +44,7 @@ public static int size = 0;
 	SPECIAL_ATTRIBUTE_0 = size++,
 	SPECIAL_ATTRIBUTE_1 = size++,
 	SPECIAL_ATTRIBUTE_2 = size++;
+
 	
 	
 	@Deprecated

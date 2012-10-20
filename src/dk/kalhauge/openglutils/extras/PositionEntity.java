@@ -22,7 +22,7 @@ public class PositionEntity extends Entity{
 		registerAttachable(Utils.MODELVIEW_MATRIX, mvMatrix);
 		registerAttachable(Utils.MODELVIEW_PROJECTION_MATRIX, Matrix.multiply(projection, mvMatrix));
 		Matrix imvMatrix = mvMatrix.invert();
-		registerAttachable(Utils.SPECIAL_UNIFORM_0,imvMatrix);
+		registerAttachable(Utils.INVERSE_MODELVIEW_MATRIX,imvMatrix);
 	}
 	
 	public static void createMatrices(Matrix projection, Matrix view, PositionEntity ... entities) {
