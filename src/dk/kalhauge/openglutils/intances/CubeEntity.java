@@ -66,15 +66,15 @@ public class CubeEntity extends PositionEntity {
 			1,0,
 			1,1,
 			
+			1,0,
 			0,0,
 			0,1,
-			1,0,
 			1,1,
 			
+			1,0,
 			0,0,
 			0,1,
-			1,0,
-			1,1,
+			1,1
 	};
 	
 	private float[] vNorm = {
