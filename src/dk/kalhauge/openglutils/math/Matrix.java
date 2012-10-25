@@ -57,6 +57,14 @@ public class Matrix implements ShaderAttachable {
 		
 	}
 	
+	public void reset() {
+		for(int i = 0; i < 16; i++) values[i] = 0;
+		values[0]  = 1;
+		values[5]  = 1;
+		values[10] = 1;
+		values[15] = 1;
+	}
+	
 	public Matrix invert() {
 		Matrix m = new Matrix();
 		invertM(m.values, 0, this.values, 0);
@@ -78,6 +86,13 @@ public class Matrix implements ShaderAttachable {
 	public static Vec4 multiply(Matrix m, Vec4 v_in){
 		Vec4 v_out = new Vec4();
 		multiplyMV(v_out.values, 0, m.values, 0, v_in.values, 0);
+		return v_out;
+	}
+	
+	public static Vec4 multiply(Matrix m, Vec3 v_in){
+		Vec4 v_out = new Vec4();
+		float[] values = {v_in.values[0],v_in.values[1],v_in.values[2],1.0f};
+		multiplyMV(v_out.values, 0, m.values, 0, values, 0);
 		return v_out;
 	}
 	

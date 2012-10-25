@@ -10,7 +10,7 @@ public class Light {
 	private Color diffuse = Color.BLACK;
 	private Color specular = Color.BLACK;
 	
-	private Vec4 position = new Vec4(0,0,0,1.0f);
+	private Vec3 position = new Vec3(0,0,0);
 
 	public Color getAmbient() {
 		return ambient;
@@ -36,11 +36,11 @@ public class Light {
 		this.specular = specular;
 	}
 
-	public Vec4 getPosition() {
+	public Vec3 getPosition() {
 		return position;
 	}
 
-	public void setPosition(Vec4 position) {
+	public void setPosition(Vec3 position) {
 		this.position = position;
 	}
 	

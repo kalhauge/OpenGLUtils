@@ -17,6 +17,8 @@ public static int size = 0;
 	
 	public static final int 
 	ENTITY_COLOR = size++,
+	ENTITY_SHININESS = size++,
+			
 	VERTEX_POS = size++,
 	VERTEX_NORMAL = size++,
 	VERTEX_COLOR = size++,

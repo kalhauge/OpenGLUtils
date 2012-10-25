@@ -144,7 +144,7 @@ public class CubeEntity extends PositionEntity {
 	private short[] indicies = {
 			0,1,2,
 			2,1,3,
-			
+
 			4,6,5,
 			6,7,5,
 			
@@ -181,7 +181,7 @@ public class CubeEntity extends PositionEntity {
 		registerAttachable(Utils.VERTEX_NORMAL, normal);
 		registerAttachable(Utils.VERTEX_TEX_COORD, texture);
 		registerAttachable(Utils.VERTEX_COLOR, color);
-		registerAttachable(Utils.ENTITY_COLOR, Color.GREEN);
+		
 	}
 	
 }

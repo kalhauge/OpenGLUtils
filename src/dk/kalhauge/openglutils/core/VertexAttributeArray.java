@@ -1,6 +1,7 @@
 package dk.kalhauge.openglutils.core;
 
 import static android.opengl.GLES20.GL_FLOAT;
+import static android.opengl.GLES20.glDisableVertexAttribArray;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glVertexAttribPointer;
 
